@@ -27,5 +27,5 @@ jobs:
       - name: echo a String
         run: Write-Output "Windows String"
 
-      - name: Error Step
-        run: doesntexists
+      - name: Safe Step
+        run: Write-Output "No errors now"
