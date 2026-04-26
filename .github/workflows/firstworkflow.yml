@@ -1,4 +1,5 @@
 name: First Workflow
+
 on: [push]
 
 jobs:
@@ -12,18 +13,19 @@ jobs:
         run: |
           node -v
           npm -v
+
   parallel-job-macos:
     runs-on: macos-latest
     steps:
       - name: View SW Version
         run: sw_vers
+
   dependant-job:
-     runs-on: windows-latest
-     needs: run-shell-commands
-     steps:
+    runs-on: windows-latest
+    needs: run-shell-commands
+    steps:
       - name: echo a String
         run: Write-Output "Windows String"
+
       - name: Error Step
-        run: doesntexists  
-
-
+        run: doesntexists
