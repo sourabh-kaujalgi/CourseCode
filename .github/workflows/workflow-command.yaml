@@ -1,5 +1,7 @@
 name: Workflow Commands
-on: [push]
+
+on:
+  push:
 
 jobs:
   testing-wf-commands:
@@ -8,11 +10,12 @@ jobs:
     steps:
       - name: Setting an error message
         run: echo "::error::Missing semicolon"
-      - name: Setting an debug message with params
-        run:  echo "::error title::debug title,file=aap.js,line =2, endLine=3,col=5,endCoilumn=7 ::Missinng Semocolon"
-      - name: Setting an Warning message with params
-        run:  echo "::error title::Warning title,file=aap.js,line =2, endLine=3,col=5,endCoilumn=7 ::Missinng Semocolon"
-      - name: Setting an Notice message with params
-        run:  echo "::error title::Notice title,file=aap.js,line =2, endLine=3,col=5,endCoilumn=7 ::Missinng Semocolon"
 
+      - name: Setting a debug message with params
+        run: echo "::debug file=app.js,line=2,endLine=3,col=5,endColumn=7,title=Debug title::Missing Semicolon"
 
+      - name: Setting a warning message with params
+        run: echo "::warning file=app.js,line=2,endLine=3,col=5,endColumn=7,title=Warning title::Missing Semicolon"
+
+      - name: Setting a notice message with params
+        run: echo "::notice file=app.js,line=2,endLine=3,col=5,endColumn=7,title=Notice title::Missing Semicolon"
