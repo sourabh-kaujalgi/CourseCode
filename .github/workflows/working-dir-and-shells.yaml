@@ -20,8 +20,8 @@ jobs:
       - name: Display Working Directory & List Files
         shell: pwsh
         run: |
-          pwd
-          ls -a
+          Get-Location
+          dir
           echo $env:GITHUB_SHA
           echo $env:GITHUB_REPOSITORY
           echo $env:GITHUB_WORKSPACE
