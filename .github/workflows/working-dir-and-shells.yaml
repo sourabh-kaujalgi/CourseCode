@@ -21,7 +21,7 @@ jobs:
         shell: pwsh
         run: |
           pwd
-          ls -a
+          Get-ChildItem -Force
           echo $env:GITHUB_SHA
           echo $env:GITHUB_REPOSITORY
           echo $env:GITHUB_WORKSPACE
