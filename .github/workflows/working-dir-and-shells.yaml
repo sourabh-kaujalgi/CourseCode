@@ -1,0 +1,26 @@
+name: Workflow Dirs and Shells
+on: [push]
+jobs:
+    display-wd-info:
+        runs-on: ubantu-latest
+        steps:
+            - name: Display Working directory & List and Files
+
+              run: |
+                 pwd
+                 ls -a 
+                 echo $GITHUB_SHA
+                 echo $GIHUB_RESPOSITORY
+                 echo $GITHUB_WORKSPACE
+
+    display-wd-info-windows:
+        runs-on: windows-latest
+        steps:
+            - name: Display Working directory & List and Files
+
+              run: |
+                 pwd
+                 ls -a 
+                 echo $GITHUB_SHA
+                 echo $GIHUB_RESPOSITORY
+                 echo $GITHUB_WORKSPACE
