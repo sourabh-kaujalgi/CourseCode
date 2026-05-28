@@ -6,6 +6,7 @@ on:
 
 env:
     GREETING: "Namastey"
+    NAME: ${{vars.WELCOME}}
 
 jobs:
   first_job:
@@ -19,8 +20,11 @@ jobs:
           env: 
             FIRSTNAME: "Sourabh"
             LASTNAME: "Kaujalgi"
+            
 
         - name: Printing the workflow environment variables
-          run: echo "The Value of WELCOME is ${{ env.GREETING }}"
+          run: |
+           echo "The Value of Greetings is ${{ env.GREETING }}"
+           echo "The Value of Greetings is ${{ env.NAME }}"
             
    
