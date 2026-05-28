@@ -4,6 +4,9 @@ run-name : ${{github.actor}} is testing out Github Actions
 on:
   workflow_dispatch
 
+env:
+    GREETING: "Namastey"
+
 jobs:
   first_job:
     runs-on: ubuntu-latest
@@ -11,10 +14,13 @@ jobs:
         - name: Printing the Repository Variables
           run: echo "The Value of WELCOME is ${{ vars.WELCOME }}"
         
-        - name: Setting and Printing the environment variables
+        - name: Setting and Printing the Step environment variables
           run: echo "The Firdt name is ${{ env.FIRSTNAME }} and last name is ${{ env.LASTNAME }} "
           env: 
             FIRSTNAME: "Sourabh"
             LASTNAME: "Kaujalgi"
-            
 
+        - name: Printing the workflow environment variables
+          run: echo "The Value of WELCOME is ${{ env.GREETING }}"
+            
+   
