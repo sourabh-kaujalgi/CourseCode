@@ -1,0 +1,12 @@
+name: 2. Variables
+run-name : ${{github.actor}} is testing out Github Actions
+
+on:
+  workflow_dispatch
+
+jobs:
+  first_job:
+    runs-on: ubuntu-latest
+    steps:
+        - name: Printing the Environment Variables
+          run: echo "The Value of WELCOME is ${{ vars.WELCOME }}"
