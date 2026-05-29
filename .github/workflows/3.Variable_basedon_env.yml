@@ -1,0 +1,29 @@
+name : 3. Testing Variables Based on th Environment
+
+run-name : ${{github.actor}} is running the ${{github.workflow}}
+
+on:
+    - workflow_dispatch
+
+jobs:
+    dev_deployment: 
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Repository
+              uses: actions/checkout@v4
+            
+            - name: Print Dev Environment Variables
+              run: echo "The value of Dev environment variable is ${{ vars.HOSTNAME }}"
+
+    qa_deployment: 
+        runs-on: ubuntu-latest
+        steps:
+            - name: Print QA Environment Variables
+              run: echo "The value of Dev environment variable is ${{ vars.HOSTNAME }}"
+    
+    prod_deployment: 
+         runs-on: ubuntu-latest
+         steps:
+            - name: Print PROD Environment Variables
+              run: echo "The value of Dev environment variable is ${{ vars.HOSTNAME }}"
+        
