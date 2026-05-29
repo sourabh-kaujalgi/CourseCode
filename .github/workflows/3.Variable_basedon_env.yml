@@ -8,6 +8,7 @@ on:
 jobs:
     dev_deployment: 
         runs-on: ubuntu-latest
+        environment: dev
         steps:
             - name: Checkout Repository
               uses: actions/checkout@v4
@@ -17,13 +18,15 @@ jobs:
 
     qa_deployment: 
         runs-on: ubuntu-latest
+        environment: qa
         steps:
             - name: Print QA Environment Variables
               run: echo "The value of Dev environment variable is ${{ vars.HOSTNAME }}"
     
     prod_deployment: 
          runs-on: ubuntu-latest
+         environment: prod
          steps:
             - name: Print PROD Environment Variables
-              run: echo "The value of Dev environment variable is ${{ vars.HOSTNAME }}"
+              run: echo "The value of PROD environment variable is ${{ vars.HOSTNAME }}"
         
