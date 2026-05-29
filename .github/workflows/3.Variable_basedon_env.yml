@@ -19,6 +19,7 @@ jobs:
     qa_deployment: 
         runs-on: ubuntu-latest
         environment: qa
+        needs: dev_deployment
         steps:
             - name: Print QA Environment Variables
               run: echo "The value of QA environment variable is ${{ vars.HOSTNAME }}"
@@ -26,6 +27,7 @@ jobs:
     prod_deployment: 
          runs-on: ubuntu-latest
          environment: prod
+         needs: qa_deployment
          steps:
             - name: Print PROD Environment Variables
               run: echo "The value of PROD environment variable is ${{ vars.HOSTNAME }}"
