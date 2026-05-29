@@ -6,7 +6,7 @@ on:
     - workflow_dispatch
 
 jobs:
-    dev_deployment: 
+    deploy_dev: 
         runs-on: ubuntu-latest
         environment: dev
         steps:
@@ -19,7 +19,7 @@ jobs:
     qa_deployment: 
         runs-on: ubuntu-latest
         environment: qa
-        needs: dev_deployment
+        needs: deploy_dev
         steps:
             - name: Print QA Environment Variables
               run: echo "The value of QA environment variable is ${{ vars.HOSTNAME }}"
