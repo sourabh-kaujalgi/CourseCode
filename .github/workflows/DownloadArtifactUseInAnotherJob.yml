@@ -1,0 +1,40 @@
+name: 3. Testing Variables Based on the Environment
+
+run-name: ${{ github.actor }} is running the ${{ github.workflow }}
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Create Python Script
+        run: echo "print('hello I am artifact')" > helloartifact.py
+
+      - name: Upload the Python Script
+        uses: actions/upload-artifact@v4
+        with:
+          name: python-script
+          path: helloartifact.py
+          retention-days: 1
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Setting up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.13'
+
+      - name: Download the Python Script Artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: python-script
+          path: .
+
+      - name: Run the Python Script
+        run: python helloartifact.py
