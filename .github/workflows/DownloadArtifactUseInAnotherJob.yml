@@ -1,4 +1,4 @@
-name: 3. Testing Variables Based on the Environment
+name: 3.Upload and dounload artifacts
 
 run-name: ${{ github.actor }} is running the ${{ github.workflow }}
 
