@@ -24,6 +24,7 @@ jobs:
           pip install pytest pytest-html
 
       - name: Run tests and generate HTML report
+        if: always()
         run: pytest --html=result.html
 
       - name: Upload HTML result as artifact
