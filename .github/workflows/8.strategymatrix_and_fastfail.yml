@@ -8,9 +8,11 @@ on:
 jobs:
   unit-test:
     runs-on: ubuntu-latest
+
     strategy:
-        matrix:
-            python_version: [3.9,3.10,3.11]
+      fail-fast: false
+      matrix:
+        python_version: [3.9, 3.10, 3.11]
 
     steps:
       - name: Checkout Repository
@@ -19,7 +21,7 @@ jobs:
       - name: Setup Python
         uses: actions/setup-python@v4
         with:
-          python-version: ${{matrix.python_version}}
+          python-version: ${{ matrix.python_version }}
 
       - name: Install Dependencies
         run: |
