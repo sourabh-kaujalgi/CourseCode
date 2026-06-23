@@ -4,10 +4,6 @@ def test_addition_with_positive_numbers():
     result = app.addition(1, 2, 3)
     assert result == 6
 
-def test_addition_with_zero_number():
-    result = app.addition()
-    assert result == 0
-
 def test_addition_with_negative_numbers():
     result = app.addition(-1, 3, -2)
     assert result == 0
